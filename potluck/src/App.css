@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  height: 1000px;
+  height: 900px;
   background-image: linear-gradient(#FFCC99, #993366);
  
 }
@@ -37,19 +37,19 @@
 }
 
 .header{
-  height:100px;
+  height:130px;
   display:flex;
   justify-content: space-around;
   align-items: center;
   background-color:#FF9966;
-  border-top: 10px solid #FFCC99;
-  border-bottom: 20px solid #FFCC99;
+  
+  
   
   
 }
 .header i{
   font-size: 3rem;
-  color: #CC6666;
+  color: #993366;
 
 }
 
@@ -62,6 +62,7 @@
 .icon h1{
   margin-left: 7%;
   padding-bottom:5%;
+  color:#993366;
   
 }
 .heading{
@@ -70,3 +71,11 @@
 .text{
   font-family: 'Roboto', sans-serif;
 }
+
+.item{
+  background-color: #993366 !important;
+  
+}
+
+
+

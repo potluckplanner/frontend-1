@@ -1,11 +1,13 @@
 import React from 'react';
-import Header from "./components/header"
+import Menu1 from "./components/Menu"
 import './App.css';
+import EventForm from './components/EventForm';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Menu1 />
+      {/* <EventForm /> */}
     </div>
   );
 }
