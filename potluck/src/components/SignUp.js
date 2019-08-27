@@ -78,9 +78,12 @@ export default withFormik({
 
   handleSubmit(values, formikBag) {
     const url = "http://localhost:3000/";
+
+    console.log(formikBag)
     axios
       .post(url, values)
       .then(response => {
+        console.log(response)
         localStorage.setItem("token", response.data.token);
         formikBag.props.history.push("/Menu");
       })

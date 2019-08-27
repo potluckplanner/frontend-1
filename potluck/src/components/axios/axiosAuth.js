@@ -8,5 +8,6 @@ export const axiosAuth = () => {
             'Content-Type': 'application/json',
             'Authorization': `${token}`
         },
+        // baseURL: 'http://localhost:3000/'
     })
 }
