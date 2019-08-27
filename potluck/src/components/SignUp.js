@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-
+import { Label, Input, SignUpIntro, SignUpWrapper } from './styledComponents/StyledComponents'
 
 
 
@@ -16,39 +16,54 @@ function SignUp({ touched, errors }) {
 
   return (
 
-    <Form >
-      <div>
-        <label >Name</label>
-        <Field 
-        name="name" 
-        type="name" 
-        autoComplete="off"
-        />
-        <p>{touched.name && errors.name}</p>
-      </div>
+    <SignUpWrapper>
 
-      <div >
-        <label >Email</label>
-        <Field 
-        name="email" 
-        type="email" 
-        autoComplete="off"
-        />
-        <p>{touched.email && errors.email}</p>
-      </div>
+      <Form className="singUpForm">
+        <div>
+          <Input>
+            <Label>Name</Label>
+            <Field 
+            name="name" 
+            type="text" 
+            autoComplete="off"
+            />
+            <br/>
+            <p>{touched.name && errors.name}</p>
+          </Input>
 
-      <div >
-        <label >Password</label>
-        <Field
-          name="password"
-          type="password"
-          autoComplete="off"
-        />
-        <p>{touched.password && errors.password}</p>
-      </div>
+          <Input >
+            <Label>Email</Label>
+            <Field 
+            name="email" 
+            type="email" 
+            autoComplete="off"
+            />
+            <br/>
+            <p>{touched.email && errors.email}</p>
+          </Input>
 
-      <button type="submit" >Submit &rarr;</button>
-    </Form>
+          <Input>
+            <Label>Password</Label>
+            <Field
+              name="password"
+              type="password"
+              autoComplete="off"
+            />
+            <br/>
+            <p>{touched.password && errors.password}</p>
+          </Input>
+
+          <button type="button" class="btn btn-primary">Primary</button>
+        </div>
+      </Form>
+
+      <SignUpIntro>jhsdh jbrjh fhj rkfdj ggllll lkjlsg drrr rr 
+        rrrrrrrrr rrrrrr rrrr rrr rrrrrrr rrrr rrrrr rrrrrrr rr
+        rrrrrrrrr rrrr rrrrrrfhjr fhjbrammm mmmmmmmmm 
+        mmmm mmm mmm mmmmmm mm mmmmmmm mmmmmmmm mmmmmm 
+        mmmmm mmmmm mmmmm mmmm</SignUpIntro>
+
+    </SignUpWrapper>
   );
 }
 

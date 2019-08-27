@@ -12,27 +12,23 @@ function App() {
   return (
     <div className="App">
 
-      {/* <EventForm /> */}
 
-      <header>
+        <Route exact path="/" component={SignUp} />
 
-        <div>
-          <Route exact path="/" component={SignUp} />
+        {/* <Route exact path="/Menu" render={props => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+              return <Redirect to="/" />;
+            }
+              return <Menu1 {...props} />;
+            }} 
+        /> */}
 
-          {/* <Route exact path="/Menu" render={props => {
-              const token = localStorage.getItem("token");
-              if (!token) {
-                return <Redirect to="/" />;
-              }
-                return <Menu1 {...props} />;
-              }} 
-          /> */}
+        <Route exact path="/Menu" component={Menu1}/>
 
-          <Route exact path="/Menu" component={Menu1}/>
+        {/* <EventForm /> */}
 
 
-        </div>
-      </header>
 
     </div>
   );
