@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import '../../src/App.css';
-import Header from './Header';
 import PropTypes from 'prop-types'
-import { Menu, MenuItem } from 'semantic-ui-react'
-import EventForm from './EventForm'
+import { Menu } from 'semantic-ui-react'
+
+
 
 
 const colors = [
@@ -25,10 +24,8 @@ class ExampleMenu extends Component {
 
     return (
       <div>
-            <Header />
-      
-          
-      <Menu  className="backg" color={color} inverted widths={3}>
+        
+        <Menu color={color} inverted widths={3}>
             
         
         <Menu.Item
@@ -50,9 +47,7 @@ class ExampleMenu extends Component {
           onClick={this.handleItemClick}
         />
         
-        
       </Menu>
-      <EventForm />
 
       
       </div>
@@ -60,11 +55,11 @@ class ExampleMenu extends Component {
   }
 }
 
-const Menu1 = () => {
+const NavBar = () => {
   const menus = colors.map((color) => <ExampleMenu color={color} key={color} />)
 
   return <div>{menus}</div>
 }
 
-export default Menu1
 
+export default NavBar

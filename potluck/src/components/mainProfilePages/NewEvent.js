@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-const EventForm = () => {
+const NewEvent = () => {
   const defaultState = {
     name: ""
   };
@@ -65,4 +65,4 @@ const EventForm = () => {
     </div>
   );
 };
-export default EventForm;
+export default NewEvent;

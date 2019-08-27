@@ -2,9 +2,8 @@ import React from 'react';
 
 import SignUp from './components/loginInfo/SignUp'
 import Login from './components/loginInfo/Login'
-import Menu1 from "./components/Menu";
+import { MenuApp } from "./components/mainProfilePages/Menu";
 import Links from './components/loginInfo/Links'
-// import EventForm from './components/EventForm';
 
 import { Route, Redirect} from "react-router-dom";
 
@@ -25,15 +24,11 @@ function App() {
             if (!token) {
               return <Redirect to="/" />;
             }
-              return <Menu1 {...props} />;
+              return <MenuApp {...props} />;
             }} 
         />
 
         {/* <Route exact path="/Menu" component={Menu1}/> */}
-
-        {/* <EventForm /> */}
-
-
 
     </div>
   );
