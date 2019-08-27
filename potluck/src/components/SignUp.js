@@ -17,7 +17,7 @@ function SignUp({ touched, errors }) {
   return (
 
     <Form >
-      <div >
+      <div>
         <label >Name</label>
         <Field 
         name="name" 
