@@ -1,6 +1,10 @@
 .App {
   text-align: center;
+  height: 900px;
+  background-image: linear-gradient(#FFCC99, #993366);
+ 
 }
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -31,3 +35,47 @@
     transform: rotate(360deg);
   }
 }
+
+.header{
+  height:130px;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color:#FF9966;
+  
+  
+  
+  
+}
+.header i{
+  font-size: 3rem;
+  color: #993366;
+
+}
+
+.icon{
+  width: 300px;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center
+}
+.icon h1{
+  margin-left: 7%;
+  padding-bottom:5%;
+  color:#993366;
+  
+}
+.heading{
+  font-family: 'Patua One', cursive;
+}
+.text{
+  font-family: 'Roboto', sans-serif;
+}
+
+.item{
+  background-color: #993366 !important;
+  
+}
+
+
+
