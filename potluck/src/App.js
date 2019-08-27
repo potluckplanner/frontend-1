@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SignUp from './components/SignUp'
-import {Menu} from './components/Menu'
+// import {Menu} from './components/Menu'
 
 
 import { Route, Redirect } from "react-router-dom";
@@ -17,13 +17,13 @@ function App() {
           <Route exact path="/" component={SignUp} />
 
 
-          <Route exact path="/Menu" render={props => {
+          {/* <Route exact path="/Menu" render={props => {
               const token = localStorage.getItem("token");
               if (!token) {
                 return <Redirect to="/" />;
               }
                 return <Menu {...props} />;
-              }} />
+              }} /> */}
         </div>
 
 
