@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import '../../src/App.css';
 import Header from './Header';
 import PropTypes from 'prop-types'
-import { Menu } from 'semantic-ui-react'
+import { Menu, MenuItem } from 'semantic-ui-react'
+import EventForm from './EventForm'
+
 
 const colors = [
   "orange",
@@ -26,20 +28,33 @@ class ExampleMenu extends Component {
             <Header />
       
           
-      <Menu className="backg" color={color} inverted widths={2}>
+      <Menu  className="backg" color={color} inverted widths={3}>
             
         
         <Menu.Item
-          name='Events'
-          active={activeItem === 'Events'}
+          className="text"
+          name='All Events'
+          active={activeItem === 'All Events'}
           onClick={this.handleItemClick}
         />
+            
+        
         <Menu.Item
+          name='My Events'
+          active={activeItem === 'My Events'}
+          onClick={this.handleItemClick}
+        />
+       <Menu.Item
           name='New Event'
           active={activeItem === 'New Event'}
           onClick={this.handleItemClick}
         />
+        
+        
       </Menu>
+      <EventForm />
+
+      
       </div>
     )
   }
