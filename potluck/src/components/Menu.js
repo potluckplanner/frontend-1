@@ -6,9 +6,8 @@ import { Menu } from 'semantic-ui-react'
 
 const colors = [
   "orange",
-  
 ]
-
+ 
 class ExampleMenu extends Component {
   static propTypes = {
     color: PropTypes.string,
@@ -46,10 +45,11 @@ class ExampleMenu extends Component {
   }
 }
 
-const MenuExampleColoredInvertedMenus = () => {
+const Menu1 = () => {
   const menus = colors.map((color) => <ExampleMenu color={color} key={color} />)
 
   return <div>{menus}</div>
 }
 
-export default MenuExampleColoredInvertedMenus
+export default Menu1
+

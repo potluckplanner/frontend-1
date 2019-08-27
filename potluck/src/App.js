@@ -1,13 +1,39 @@
 import React from 'react';
-import Menu1 from "./components/Menu"
+
+import SignUp from './components/SignUp'
+import Menu1 from "./components/Menu";
+// import EventForm from './components/EventForm';
+
+import { Route, Redirect } from "react-router-dom";
+
 import './App.css';
-import EventForm from './components/EventForm';
 
 function App() {
   return (
     <div className="App">
-      <Menu1 />
+
       {/* <EventForm /> */}
+
+      <header>
+
+        <div>
+          <Route exact path="/" component={SignUp} />
+
+          {/* <Route exact path="/Menu" render={props => {
+              const token = localStorage.getItem("token");
+              if (!token) {
+                return <Redirect to="/" />;
+              }
+                return <Menu1 {...props} />;
+              }} 
+          /> */}
+
+          <Route exact path="/Menu" component={Menu1}/>
+
+
+        </div>
+      </header>
+
     </div>
   );
 }
