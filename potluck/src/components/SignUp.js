@@ -4,15 +4,29 @@ import * as Yup from "yup";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
-function Login({ touched, errors }) {
+
+
+
+function SignUp({ touched, errors }) {
   const token = localStorage.getItem("token");
 
   if (token) {
-    return <Redirect to="/" />;
+    return <Redirect to="/Menu" />;
   }
 
   return (
+
     <Form >
+      <div >
+        <label >Name</label>
+        <Field 
+        name="name" 
+        type="name" 
+        autoComplete="off"
+        />
+        <p>{touched.name && errors.name}</p>
+      </div>
+
       <div >
         <label >Email</label>
         <Field 
@@ -33,7 +47,7 @@ function Login({ touched, errors }) {
         <p>{touched.password && errors.password}</p>
       </div>
 
-      <button>Submit &rarr;</button>
+      <button type="submit" >Submit &rarr;</button>
     </Form>
   );
 }
@@ -42,6 +56,7 @@ export default withFormik({
 
   mapPropsToValues() {
     return {
+      name: "",
       email: "",
       password: ""
     };
@@ -49,6 +64,9 @@ export default withFormik({
 
 
   validationSchema: Yup.object().shape({
+    name: Yup.string()
+      .min(3)
+      .required(),
     email: Yup.string()
       .email()
       .required(),
@@ -64,11 +82,11 @@ export default withFormik({
       .post(url, values)
       .then(response => {
         localStorage.setItem("token", response.data.token);
-        formikBag.props.history.push("/");
+        formikBag.props.history.push("/Menu");
       })
       .catch(e => {
         console.log(e.response.data);
       });
   }
 
-})(Login);
+})(SignUp);
