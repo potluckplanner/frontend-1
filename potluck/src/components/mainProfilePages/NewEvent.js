@@ -37,7 +37,7 @@ const NewEvent = () => {
           <input
             className="startF"
             type="text"
-            name="time start"
+            name="timestart"
             placeholder="Start Time"
           />
         </label>
@@ -46,7 +46,7 @@ const NewEvent = () => {
           <input
             className="endF"
             type="text"
-            name="time end"
+            name="timeend"
             placeholder="End Time"
           />
         </label>
@@ -55,7 +55,7 @@ const NewEvent = () => {
           <input
             className="descriptionF"
             type="text"
-            name="name"
+            name="description"
             placeholder="Description"
           />
         </label>
