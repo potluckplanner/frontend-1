@@ -2,17 +2,11 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
-import { Label, Input, SignUpIntro, SignUpWrapper } from './styledComponents/StyledComponents'
+import { Label, Input, SignUpIntro, SignUpWrapper } from '../styledComponents/StyledComponents'
 
 
 
 function SignUp({ touched, errors }) {
-  const token = localStorage.getItem("token");
-
-  if (token) {
-    return <Redirect to="/Menu" />;
-  }
 
   return (
 
@@ -23,20 +17,20 @@ function SignUp({ touched, errors }) {
           <Input>
             <Label>Name</Label>
             <Field 
-            name="name" 
-            type="text" 
-            autoComplete="off"
+              name="username" 
+              type="username"
+              autoComplete="off"
             />
             <br/>
-            <p>{touched.name && errors.name}</p>
+            <p>{touched.username && errors.username}</p>
           </Input>
 
           <Input >
             <Label>Email</Label>
             <Field 
-            name="email" 
-            type="email" 
-            autoComplete="off"
+              name="email" 
+              type="email" 
+              autoComplete="off"
             />
             <br/>
             <p>{touched.email && errors.email}</p>
@@ -53,7 +47,7 @@ function SignUp({ touched, errors }) {
             <p>{touched.password && errors.password}</p>
           </Input>
 
-          <button type="button" class="btn btn-primary">Primary</button>
+          <button type="submit" >Submit &rarr;</button>
         </div>
       </Form>
 
@@ -71,7 +65,7 @@ export default withFormik({
 
   mapPropsToValues() {
     return {
-      name: "",
+      username: "",
       email: "",
       password: ""
     };
@@ -79,7 +73,7 @@ export default withFormik({
 
 
   validationSchema: Yup.object().shape({
-    name: Yup.string()
+    username: Yup.string()
       .min(3)
       .required(),
     email: Yup.string()
@@ -92,18 +86,20 @@ export default withFormik({
 
 
   handleSubmit(values, formikBag) {
-    const url = "http://localhost:3000/";
+    const url = "https://career-longevity-predictor.herokuapp.com/api/auth/register";
+    // const url = "https://pure-headland-63143.herokuapp.com/users/register"
 
-    console.log(formikBag)
+
+    console.log(values)
     axios
       .post(url, values)
       .then(response => {
         console.log(response)
-        localStorage.setItem("token", response.data.token);
-        formikBag.props.history.push("/Menu");
+        // localStorage.setItem("token");
+        formikBag.props.history.push("/users/login");
       })
       .catch(e => {
-        console.log(e.response.data);
+        console.log(e);
       });
   }
 
