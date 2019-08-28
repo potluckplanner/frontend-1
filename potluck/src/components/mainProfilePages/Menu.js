@@ -4,6 +4,8 @@ import NavBar from './NavBar'
 import NewEvent from './NewEvent'
 import { EventList } from './EventList'
 import MyEvents from './MyEvents';
+import AddPerson from './AddPerson'
+
 
 
 import { Route } from "react-router-dom";
@@ -20,6 +22,10 @@ export const MenuApp = props => {
         <Header {...props} />
 
         <NavBar {...props} />
+      </div>
+
+      <div>
+        <AddPerson />
       </div>
 
       <div>
