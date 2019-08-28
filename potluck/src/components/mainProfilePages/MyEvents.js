@@ -5,7 +5,10 @@ import Data from "./Data";
 const MyEvents = (props) => {
 
       return( 
-      <div className="myevents">
+      <div>
+            <h1 className="heading titleH">My Events</h1>
+            <div className="myevents">
+            
             {
                   Data.map( ( i ) => (
                   
@@ -13,6 +16,7 @@ const MyEvents = (props) => {
 
                   ))
             }
+            </div>
             </div>
       )
 

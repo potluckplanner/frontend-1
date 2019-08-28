@@ -1,17 +1,18 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import '../../App.css';
 
 const NavBar = () => {
 
 
   return( 
 
-    <div>
-      <NavLink to='/menu/profile'>All Events</NavLink>
+    <div className="navflex">
+      <NavLink className="navlink" to='/menu/profile'>All Events</NavLink>
 
-      <NavLink to='/menu/friends'>My Events</NavLink>
+      <NavLink className="navlink" to='/menu/friends' >My Events</NavLink>
 
-      <NavLink to='/menu'>New Event</NavLink>
+      <NavLink className="navlink" to='/menu'>New Event</NavLink>
     </div>
   )
 

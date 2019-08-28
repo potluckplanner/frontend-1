@@ -9,6 +9,7 @@ const NewEvent = () => {
   function handleSubmit() {}
   return (
     <div className="form">
+      <h1 className="heading titleH">Create New Event</h1>
       <form onSubmit={event => handleSubmit(event)}>
         <label className="toplabel" >
           Event Name
