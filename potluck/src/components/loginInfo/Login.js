@@ -17,7 +17,8 @@ function Login({ touched, errors }) {
 
   return (
 
-    <SignUpWrapper>
+    <SignUpWrapper className="wrapper">
+      <h1 className ="signup heading">Sign in</h1>
 
       <Form className="singUpForm">
         <div>
@@ -47,11 +48,11 @@ function Login({ touched, errors }) {
         </div>
       </Form>
 
-      <SignUpIntro>jhsdh jbrjh fhj rkfdj ggllll lkjlsg drrr rr 
+      {/* <SignUpIntro>jhsdh jbrjh fhj rkfdj ggllll lkjlsg drrr rr 
         rrrrrrrrr rrrrrr rrrr rrr rrrrrrr rrrr rrrrr rrrrrrr rr
         rrrrrrrrr rrrr rrrrrrfhjr fhjbrammm mmmmmmmmm 
         mmmm mmm mmm mmmmmm mm mmmmmmm mmmmmmmm mmmmmm 
-        mmmmm mmmmm mmmmm mmmm</SignUpIntro>
+        mmmmm mmmmm mmmmm mmmm</SignUpIntro> */}
 
     </SignUpWrapper>
   );
