@@ -25,12 +25,10 @@ export const MenuApp = props => {
       </div>
 
       <div>
-        <AddPerson />
-      </div>
-
-      <div>
         <Route exact path='/menu' component={NewEvent} />
         
+        <Route exact path='/menu/friends' component={AddPerson} />
+
         <Route exact path='/menu/friends' component={MyEvents} />
 
         <Route exact path='/menu/profile' component={EventList} />  
