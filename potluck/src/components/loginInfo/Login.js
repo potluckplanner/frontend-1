@@ -23,7 +23,7 @@ function Login({ touched, errors }) {
       <Form className="singUpForm">
         <div>
           <Input>
-            <Label>Name</Label>
+            <Label>Username</Label>
             <Field 
               name="username" 
               type="username"
@@ -73,8 +73,8 @@ export default withFormik({
 
 
   handleSubmit(values, formikBag) {
-    const url = "https://career-longevity-predictor.herokuapp.com/api/auth/login";
-    // const url = "https://pure-headland-63143.herokuapp.com/users/login"
+    // const url = "https://career-longevity-predictor.herokuapp.com/api/auth/login";
+    const url = "https://potluckplanner-be.herokuapp.com/users/login"
 
 
     console.log(values)

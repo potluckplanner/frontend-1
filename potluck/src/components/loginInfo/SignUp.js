@@ -17,7 +17,7 @@ function SignUp({ touched, errors }) {
       <Form className="singUpForm">
         <div>
           <Input>
-            <Label>Name</Label>
+            <Label>Username</Label>
             <Field 
               name="username" 
               type="username"
@@ -25,6 +25,17 @@ function SignUp({ touched, errors }) {
             />
             <br/>
             <p>{touched.username && errors.username}</p>
+          </Input>
+
+          <Input>
+            <Label>Full Name</Label>
+            <Field 
+              name="full_name" 
+              type="text"
+              autoComplete="off"
+            />
+            <br/>
+            <p>{touched.full_name && errors.full_name}</p>
           </Input>
 
           <Input >
@@ -72,6 +83,9 @@ export default withFormik({
     username: Yup.string()
       .min(3)
       .required(),
+    full_name: Yup.string()
+      .min(3)
+      .required(),
     email: Yup.string()
       .email()
       .required(),
@@ -82,8 +96,8 @@ export default withFormik({
 
 
   handleSubmit(values, formikBag) {
-    const url = "https://career-longevity-predictor.herokuapp.com/api/auth/register";
-    // const url = "https://pure-headland-63143.herokuapp.com/users/register"
+    // const url = "https://career-longevity-predictor.herokuapp.com/api/auth/register";
+    const url = "https://potluckplanner-be.herokuapp.com/users/register"
 
 
     console.log(values)

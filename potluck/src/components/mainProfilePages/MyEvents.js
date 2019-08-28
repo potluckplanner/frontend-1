@@ -9,7 +9,7 @@ const MyEvents = (props) => {
             {
                   Data.map( ( i ) => (
                   
-                  <EventCard name={i.name} date={i.date} address={i.address} timestart={i.timestart} timeend={i.timeend} description={i.description} />
+                  <EventCard name={i.name} key={i.id} date={i.date} address={i.address} timestart={i.timestart} timeend={i.timeend} description={i.description} />
 
                   ))
             }

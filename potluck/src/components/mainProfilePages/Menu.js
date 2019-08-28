@@ -11,13 +11,13 @@ import { Route } from "react-router-dom";
 
 export const MenuApp = props => {
    
-  console.log(props)
+  // console.log(props)
 
   return(
     <div>
 
       <div>
-        <Header />
+        <Header {...props} />
 
         <NavBar {...props} />
       </div>
