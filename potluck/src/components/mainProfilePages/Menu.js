@@ -24,9 +24,9 @@ export const MenuApp = props => {
         <NavBar {...props} />
       </div>
 
-      <div>
+      {/* <div>
         <AddPerson />
-      </div>
+      </div> */}
 
       <div>
         <Route exact path='/menu' component={NewEvent} />
