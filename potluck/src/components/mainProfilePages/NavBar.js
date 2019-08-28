@@ -1,3 +1,27 @@
+import React from 'react';
+import { NavLink } from "react-router-dom";
+
+const NavBar = () => {
+
+
+  return( 
+
+    <div>
+      <NavLink to='/menu/profile'>All Events</NavLink>
+
+      <NavLink to='/menu/friends'>My Events</NavLink>
+
+      <NavLink to='/menu'>New Event</NavLink>
+    </div>
+  )
+
+}
+
+
+export default NavBar
+
+
+
 // import React, {Component} from 'react';
 // import PropTypes from 'prop-types'
 // import { Menu } from 'semantic-ui-react'
@@ -29,6 +53,7 @@
 //         <Menu color={color} inverted widths={3}>
             
         
+
 //         <Menu.Item
 //           className="text"
 //           active={activeItem === 'All Events'}
@@ -51,6 +76,27 @@
 //           onClick={this.handleItemClick}
 //         > <Link to='/menu'>New Event</Link> </Menu.Item>
        
+
+      //   <Menu.Item
+      //     className="text devin"
+      //     name='All Events'
+      //     active={activeItem === 'All Events'}
+      //     onClick={this.handleItemClick}
+      //   />
+            
+        
+      //   <Menu.Item
+      //   className="text devin"
+      //     name='My Events'
+      //     active={activeItem === 'My Events'}
+      //     onClick={this.handleItemClick}
+      //   />
+      //  <Menu.Item
+      //  className="text devin"
+      //     name='New Event'
+      //     active={activeItem === 'New Event'}
+      //     onClick={this.handleItemClick}
+      //   />
         
 //       </Menu>
 
@@ -74,25 +120,3 @@
 
 
 
-
-import React from 'react';
-import { NavLink } from "react-router-dom";
-
-const NavBar = () => {
-
-
-  return( 
-
-    <div>
-      <NavLink to='/menu/profile'>All Events</NavLink>
-
-      <NavLink to='/menu/friends'>My Events</NavLink>
-
-      <NavLink to='/menu'>New Event</NavLink>
-    </div>
-  )
-
-}
-
-
-export default NavBar

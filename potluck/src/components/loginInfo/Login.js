@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { Label, Input, SignUpIntro, SignUpWrapper } from '../styledComponents/StyledComponents'
+import { Label, Input, SignUpWrapper } from '../styledComponents/StyledComponents'
 
 
 
@@ -17,7 +17,8 @@ function Login({ touched, errors }) {
 
   return (
 
-    <SignUpWrapper>
+    <SignUpWrapper className="wrapper">
+      <h1 className ="signup heading">Sign in</h1>
 
       <Form className="singUpForm">
         <div>
@@ -46,12 +47,6 @@ function Login({ touched, errors }) {
           <button type="submit" >Submit &rarr;</button>
         </div>
       </Form>
-
-      <SignUpIntro>jhsdh jbrjh fhj rkfdj ggllll lkjlsg drrr rr 
-        rrrrrrrrr rrrrrr rrrr rrr rrrrrrr rrrr rrrrr rrrrrrr rr
-        rrrrrrrrr rrrr rrrrrrfhjr fhjbrammm mmmmmmmmm 
-        mmmm mmm mmm mmmmmm mm mmmmmmm mmmmmmmm mmmmmm 
-        mmmmm mmmmm mmmmm mmmm</SignUpIntro>
 
     </SignUpWrapper>
   );
