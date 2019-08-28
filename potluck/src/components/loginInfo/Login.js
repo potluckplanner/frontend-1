@@ -12,7 +12,7 @@ function Login({ touched, errors }) {
 
 
   if (token) {
-    return <Redirect to="/Menu" />;
+    return <Redirect to="/menu" />;
   }
 
   return (
@@ -88,7 +88,7 @@ export default withFormik({
       .then(response => {
         console.log(response)
         localStorage.setItem("token", response.data);
-        formikBag.props.history.push("/Menu");
+        formikBag.props.history.push("/menu");
       })
       .catch(e => {
         console.log(e);

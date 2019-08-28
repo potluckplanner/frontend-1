@@ -1,64 +1,97 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types'
-import { Menu } from 'semantic-ui-react'
+// import React, {Component} from 'react';
+// import PropTypes from 'prop-types'
+// import { Menu } from 'semantic-ui-react'
+// import { Link } from "react-router-dom";
 
 
 
 
-const colors = [
-  "orange",
-]
+// const colors = [
+//   "orange",
+// ]
  
-class ExampleMenu extends Component {
-  static propTypes = {
-    color: PropTypes.string,
-  }
+// class ExampleMenu extends Component {
+//   static propTypes = {
+//     color: PropTypes.string,
+//   }
 
-  state = { activeItem: 'home' }
+//   state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+//   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-  render() {
-    const { color } = this.props
-    const { activeItem } = this.state
+//   render() {
+//     const { color } = this.props
+//     const { activeItem } = this.state
 
-    return (
-      <div>
+//     return (
+//       <div>
         
-        <Menu color={color} inverted widths={3}>
+//         <Menu color={color} inverted widths={3}>
             
         
-        <Menu.Item
-          className="text"
-          name='All Events'
-          active={activeItem === 'All Events'}
-          onClick={this.handleItemClick}
-        />
+//         <Menu.Item
+//           className="text"
+//           active={activeItem === 'All Events'}
+//           onClick={this.handleItemClick}
+//         ><Link to='/menu/profile'>All Events</Link> </Menu.Item>
+        
+
             
         
-        <Menu.Item
-          name='My Events'
-          active={activeItem === 'My Events'}
-          onClick={this.handleItemClick}
-        />
-       <Menu.Item
-          name='New Event'
-          active={activeItem === 'New Event'}
-          onClick={this.handleItemClick}
-        />
+//         <Menu.Item
+//           active={activeItem === 'My Events'}
+//           onClick={this.handleItemClick}
+//         > <Link to='/menu/friends'>My Events</Link> </Menu.Item>
         
-      </Menu>
+
+
+        
+//        <Menu.Item
+//           active={activeItem === 'New Event'}
+//           onClick={this.handleItemClick}
+//         > <Link to='/menu'>New Event</Link> </Menu.Item>
+       
+        
+//       </Menu>
 
       
-      </div>
-    )
-  }
-}
+//       </div>
+//     )
+//   }
+// }
+
+// const NavBar = () => {
+//   const menus = colors.map((color) => <ExampleMenu color={color} key={color} />)
+
+//   return <div>{menus}</div>
+// }
+
+
+// export default NavBar
+
+
+
+
+
+
+
+import React from 'react';
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
-  const menus = colors.map((color) => <ExampleMenu color={color} key={color} />)
 
-  return <div>{menus}</div>
+
+  return( 
+
+    <div>
+      <NavLink to='/menu/profile'>All Events</NavLink>
+
+      <NavLink to='/menu/friends'>My Events</NavLink>
+
+      <NavLink to='/menu'>New Event</NavLink>
+    </div>
+  )
+
 }
 
 

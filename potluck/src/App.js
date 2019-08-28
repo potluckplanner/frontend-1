@@ -19,7 +19,7 @@ function App() {
 
         <Route exact path="/users/login" component={Login} />
 
-        <Route exact path="/Menu" render={props => {
+        <Route exact path="/menu" render={props => {
             const token = localStorage.getItem("token");
             if (!token) {
               return <Redirect to="/" />;
@@ -28,7 +28,31 @@ function App() {
             }} 
         />
 
-        {/* <Route exact path="/Menu" component={Menu1}/> */}
+        <Route exact path="/menu/friends" render={props => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+              return <Redirect to="/" />;
+            }
+              return <MenuApp {...props} />;
+            }} 
+        />
+
+        <Route exact path="/menu/profile" render={props => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+              return <Redirect to="/" />;
+            }
+              return <MenuApp {...props} />;
+            }} 
+        />
+
+
+
+
+
+
+
+        {/* <Route exact path="/menu" component={MenuApp}/> */}
 
     </div>
   );
