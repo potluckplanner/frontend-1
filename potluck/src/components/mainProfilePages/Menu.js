@@ -13,24 +13,22 @@ import { Route } from "react-router-dom";
 
 export const MenuApp = props => {
    
-  console.log(props)
+  // console.log(props)
 
   return(
     <div>
 
       <div>
-        <Header />
+        <Header {...props} />
 
         <NavBar {...props} />
       </div>
 
       <div>
-        <AddPerson />
-      </div>
-
-      <div>
         <Route exact path='/menu' component={NewEvent} />
         
+        <Route exact path='/menu/friends' component={AddPerson} />
+
         <Route exact path='/menu/friends' component={MyEvents} />
 
         <Route exact path='/menu/profile' component={EventList} />  
