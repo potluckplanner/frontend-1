@@ -6,7 +6,7 @@ import ButtonExampleNegative from './LogoutButton';
 const Header = () => {
       return (
             <div className="header">
-                  <div className="icon"><i class="fas fa-utensils"></i><h1 className="heading">Potluck Planner</h1></div>
+                  <div className="icon"><i className="fas fa-utensils"></i><h1 className="heading">Potluck Planner</h1></div>
                   <ButtonExampleNegative />
             </div>
       )

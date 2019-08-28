@@ -2,7 +2,7 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Label, Input, SignUpIntro, SignUpWrapper } from '../styledComponents/StyledComponents'
+import { Label, Input, SignUpWrapper } from '../styledComponents/StyledComponents'
 
 
 
@@ -52,12 +52,6 @@ function SignUp({ touched, errors }) {
           <button type="submit" >Submit &rarr;</button>
         </div>
       </Form>
-
-      {/* <SignUpIntro>jhsdh jbrjh fhj rkfdj ggllll lkjlsg drrr rr 
-        rrrrrrrrr rrrrrr rrrr rrr rrrrrrr rrrr rrrrr rrrrrrr rr
-        rrrrrrrrr rrrr rrrrrrfhjr fhjbrammm mmmmmmmmm 
-        mmmm mmm mmm mmmmmm mm mmmmmmm mmmmmmmm mmmmmm 
-        mmmmm mmmmm mmmmm mmmm</SignUpIntro> */}
 
     </SignUpWrapper>
   );
