@@ -18,7 +18,7 @@
 }
 .header i {
   font-size: 3rem;
-  color: #993366;
+  color: #ffcc99;
 }
 
 .icon {
@@ -30,7 +30,7 @@
 .icon h1 {
   margin-left: 7%;
   padding-bottom: 5%;
-  color: #993366;
+  color: #cc6666;
 }
 .heading {
   font-family: "Patua One", cursive;
@@ -98,6 +98,8 @@ form button:hover {
   transition: all 0.4s ease 0s;
 }
 
+
+
 .singUpForm {
   /* border: solid 2px red; */
   width: 60%;
@@ -124,7 +126,7 @@ form button:hover {
 
 
 .eventcard{
-  border: 5px solid #ffcc99;
+  border: 5px solid #474440;
   padding: 3% 2%;
   margin:5%;
   width: 40%;
@@ -159,6 +161,9 @@ border:4px solid #ff9966;
   .eventbutton:active{
     border:none;
     }
+
   .wrapper{
     height: 100vh;
   }
+
+  

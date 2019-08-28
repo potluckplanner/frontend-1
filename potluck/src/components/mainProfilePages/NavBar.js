@@ -29,7 +29,7 @@ class ExampleMenu extends Component {
             
         
         <Menu.Item
-          className="text"
+          className="text devin"
           name='All Events'
           active={activeItem === 'All Events'}
           onClick={this.handleItemClick}
@@ -37,11 +37,13 @@ class ExampleMenu extends Component {
             
         
         <Menu.Item
+        className="text devin"
           name='My Events'
           active={activeItem === 'My Events'}
           onClick={this.handleItemClick}
         />
        <Menu.Item
+       className="text devin"
           name='New Event'
           active={activeItem === 'New Event'}
           onClick={this.handleItemClick}
