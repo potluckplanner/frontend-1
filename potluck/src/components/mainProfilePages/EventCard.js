@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
 
 const EventCard = (props) => {
 
@@ -18,3 +18,4 @@ const EventCard = (props) => {
 }
 
 export default EventCard
+

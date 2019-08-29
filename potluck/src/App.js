@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/users/register" component={SignUp} />
 
         <Route exact path="/users/login" component={Login} />
-
+        
         <Route exact path="/menu" render={props => {
             const token = localStorage.getItem("token");
             if (!token) {

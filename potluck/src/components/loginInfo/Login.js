@@ -16,14 +16,16 @@ function Login({ touched, errors }) {
   }
 
   return (
-
-    <SignUpWrapper className="wrapper">
-      <h1 className ="signup heading">Sign in</h1>
+    
+    <div>
+    <h1 className ="signup heading">Sign in</h1>
+   <SignUpWrapper className="wrapper"> 
+      
 
       <Form className="singUpForm">
         <div>
           <Input>
-            <Label>Name</Label>
+            <Label>Username</Label>
             <Field 
               name="username" 
               type="username"
@@ -49,6 +51,7 @@ function Login({ touched, errors }) {
       </Form>
 
     </SignUpWrapper>
+    </div>
   );
 }
 
@@ -73,8 +76,8 @@ export default withFormik({
 
 
   handleSubmit(values, formikBag) {
-    const url = "https://career-longevity-predictor.herokuapp.com/api/auth/login";
-    // const url = "https://pure-headland-63143.herokuapp.com/users/login"
+    // const url = "https://career-longevity-predictor.herokuapp.com/api/auth/login";
+    const url = "https://potluckplanner-be.herokuapp.com/users/login"
 
 
     console.log(values)

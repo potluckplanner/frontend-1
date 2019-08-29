@@ -61,7 +61,7 @@ const NewEvent = () => {
           />
         </label>
 
-        <button className="buttonF">Submit</button>
+        <button className="buttonD">Submit</button>
       </form>
     </div>
   );
