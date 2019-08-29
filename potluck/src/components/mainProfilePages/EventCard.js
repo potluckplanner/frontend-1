@@ -3,6 +3,7 @@ import React from 'react';
 
 const EventCard = (props) => {
 
+      // console.log(props)
 
       return(
             <div className="eventcard">

@@ -6,14 +6,19 @@ import { EventList } from './EventList'
 import MyEvents from './MyEvents';
 import AddPerson from './AddPerson'
 
-
-
 import { Route } from "react-router-dom";
+import { EventContext } from '../context/EventContext'
+import { useContext } from 'react'
 
 
-export const MenuApp = props => {
+
+
+
+export const MenuApp = (props) => {
+
+  const {events}  = useContext(EventContext)
    
-  // console.log(props)
+  console.log(events)
 
   return(
     <div>
@@ -31,7 +36,7 @@ export const MenuApp = props => {
 
         <Route exact path='/menu/profile' component={MyEvents} />
 
-        <Route exact path='/menu/events' component={EventList} />  
+        <Route exact path='/menu/events' render={() => <EventList {...events}/>} />  
       </div>
     
     </div>

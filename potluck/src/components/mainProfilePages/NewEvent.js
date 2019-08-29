@@ -7,15 +7,26 @@ import React, { useState } from "react";
 // import { Label, Input, SignUpWrapper } from '../styledComponents/StyledComponents'
 
 
-const NewEvent = () => {
+const NewEvent = props => {
+
+  // console.log(props)
+
+
   const defaultState = {
     name: ""
   };
+
+
   const [form, setForm] = useState(defaultState);
+
+
   function handleSubmit() {}
+
   return (
     <div className="form">
+
       <h1 className="heading titleH">Create New Event</h1>
+
       <form onSubmit={event => handleSubmit(event)}>
         <label className="toplabel" >
           Event Name
@@ -86,7 +97,7 @@ export default NewEvent;
 
 
 
-// function SignUp({ touched, errors }) {
+// const NewEvent = ({ touched, errors }) => {
 
 //   return (
 
@@ -96,6 +107,7 @@ export default NewEvent;
 
 //       <Form className="singUpForm">
 //         <div>
+          
 //           <Input>
 //             <Label>Username</Label>
 //             <Field 
@@ -106,6 +118,7 @@ export default NewEvent;
 //             <br/>
 //             <p>{touched.username && errors.username}</p>
 //           </Input>
+
 
 //           <Input>
 //             <Label>Full Name</Label>
@@ -118,6 +131,7 @@ export default NewEvent;
 //             <p>{touched.full_name && errors.full_name}</p>
 //           </Input>
 
+
 //           <Input >
 //             <Label>Email</Label>
 //             <Field 
@@ -129,6 +143,7 @@ export default NewEvent;
 //             <p>{touched.email && errors.email}</p>
 //           </Input>
 
+
 //           <Input>
 //             <Label>Password</Label>
 //             <Field
@@ -139,6 +154,7 @@ export default NewEvent;
 //             <br/>
 //             <p>{touched.password && errors.password}</p>
 //           </Input>
+
 
 //           <button type="submit" >Submit &rarr;</button>
 //         </div>
@@ -193,4 +209,4 @@ export default NewEvent;
 //       });
 //   }
 
-// })(SignUp);
+// })(NewEvent);
