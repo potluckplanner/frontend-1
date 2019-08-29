@@ -22,6 +22,7 @@ export const EventList = props => {
                 {events.map(item => (<EventCard 
                         address={item.address}
                         userId={item.organizer_id}
+                        date={item.date}
                         id={item.event_id}
                         city={item.city} 
                         description={item.description}

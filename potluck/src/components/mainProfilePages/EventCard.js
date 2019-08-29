@@ -6,14 +6,14 @@ import {axiosAuth} from '../axios/axiosAuth'
 
 const EventCard = (props) => {
 
-      console.log(props.userId)
+      console.log(props)
 
       return(
             <div className="eventcard">
-                  <h2 className="heading">{props.event_name}</h2>
-                  <p className="text">{props.address}</p>
+                  <h2 className="heading">{props.eventName}</h2>
+                  <p className="text">{props.address} {props.city} {props.state}</p>
                   <h3 className="heading">{props.date} </h3>
-                  <p className="text">{props.timestart} until</p>
+                  <p className="text">{props.time}</p>
                   <p className="text">{props.timeend}</p>
                   <p><i>{props.description}</i></p>
                   <button className="eventbutton">sign up</button>

@@ -1,6 +1,6 @@
 import React from 'react';
 import AddPerson from'./AddPerson';
-// import Data from './Data';
+
 
 
 const MainEvent = props => {

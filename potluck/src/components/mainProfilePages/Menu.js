@@ -3,8 +3,9 @@ import Header from './Header';
 import NavBar from './NavBar'
 import NewEvent from './NewEvent'
 import { EventList } from './EventList'
-// import MyEvents from './MyEvents';
-import AddPerson from './AddPerson'
+import MyEvents from './MyEvents'
+// import MainEvent from './MainEvent'
+// import AddPerson from './AddPerson'
 
 import { Route } from "react-router-dom";
 import { EventContext, UserContext } from '../context/EventContext'
@@ -40,13 +41,13 @@ export const MenuApp = (props) => {
       <div>
         <Route exact path='/menu' render={() => <NewEvent addNewEvent={addNewEvent} />} />
         
-        <Route exact path='/menu/profile' component={AddPerson} />
+        {/* <Route exact path='/menu/profile' component={MainEvent} /> */}
 
-        {/* <Route exact path='/menu/profile' component={MyEvents} /> */}
+        <Route exact path='/menu/profile' render={() => <MyEvents {...events} />} />
+
+        {/* <Route exact path='/menu/profile' render={() => <EventList {...events} />} />  */}
 
         <Route exact path='/menu/events' render={() => <EventList {...events} />} />  
-
-        <Route exact path='/menu/profile' component={EventList} />
 
       </div>
     
