@@ -1,6 +1,6 @@
 import React from 'react';
 import EventCard from "./EventCard";
-import Data from "./Data";
+// import Data from "./Data";
 
 const MyEvents = (props) => {
 

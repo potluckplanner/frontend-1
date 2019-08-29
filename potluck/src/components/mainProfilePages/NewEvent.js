@@ -146,6 +146,7 @@ const NewEvent = (props) => {
 
   
   return (
+<div>
     <form onSubmit = {submitForm}>
 
       <label>Event Name</label>
@@ -212,6 +213,9 @@ const NewEvent = (props) => {
       <button type="submit">Submit</button>
 
     </form>
+
+    
+    </div>
   );
 };
 

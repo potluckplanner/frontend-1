@@ -1,5 +1,8 @@
 import React from 'react';
+
 import {axiosAuth} from '../axios/axiosAuth'
+
+
 
 const EventCard = (props) => {
 
@@ -26,3 +29,4 @@ const EventCard = (props) => {
 }
 
 export default EventCard
+

@@ -1,15 +1,20 @@
+
 import React from 'react'
 import EventCard from './EventCard'
 
 import { EventContext } from '../context/EventContext'
 import { useContext } from 'react'
 
+
+import MainEvent from './MainEvent';
+
+
+
 export const EventList = props => {
 
     const {events}  = useContext(EventContext)
 
     console.log(events)
-
 
     if(events){
         return(
@@ -39,3 +44,4 @@ export const EventList = props => {
         );
       }
 };
+
