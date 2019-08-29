@@ -7,7 +7,7 @@ import Links from './components/loginInfo/Links'
 import { MenuApp } from "./components/mainProfilePages/Menu";
 
 import { Route, Redirect} from "react-router-dom";
-import { EventContext } from './components/context/EventContext'
+import { EventContext, UserContext } from './components/context/EventContext'
 
 import './App.css';
 
@@ -18,6 +18,8 @@ import './App.css';
 function App() {
 
   const [events, setEvents] = useState([])
+
+  const [users, setUsers] = useState([])
 
   // console.log(events)
 
@@ -31,6 +33,15 @@ function App() {
       .catch(error => console.log(error.response))
     }, [])
 
+    useEffect(() => {
+      axiosAuth().get("https://potluckplanner-be.herokuapp.com/users")
+        .then(res => {
+          // console.log(res.data)
+          setUsers(res.data)
+        })
+        .catch(error => console.log(error.response))
+      }, [])
+
 
 
 
@@ -38,6 +49,7 @@ function App() {
     <div className="App">
 
       <EventContext.Provider value={{events}}>
+       <UserContext.Provider value={{users}}>
 
         <Route exact path='/' component={Links} />
 
@@ -74,6 +86,8 @@ function App() {
 
         {/* <Route exact path="/menu" component={MenuApp}/> */}
 
+
+        </UserContext.Provider>
       </EventContext.Provider>
     </div>
   );

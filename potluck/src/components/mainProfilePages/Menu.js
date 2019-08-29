@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import Header from './Header';
 import NavBar from './NavBar'
 import NewEvent from './NewEvent'
@@ -7,7 +7,7 @@ import MyEvents from './MyEvents';
 import AddPerson from './AddPerson'
 
 import { Route } from "react-router-dom";
-import { EventContext } from '../context/EventContext'
+import { EventContext, UserContext } from '../context/EventContext'
 import { useContext } from 'react'
 
 
@@ -17,8 +17,20 @@ import { useContext } from 'react'
 export const MenuApp = (props) => {
 
   const {events}  = useContext(EventContext)
+  const {users}  = useContext(UserContext)
+
+  
+  const[newEvents, setNewEvents] = useState(events);
+  const[newUsers, setNewUsers] = useState(users);
+
+  const addNewEvent = e => {
+    setNewEvents([...newEvents, e]);
+  };
+
+  // console.log(users)
+
    
-  console.log(events)
+  // console.log(events)
 
   return(
     <div>
@@ -30,13 +42,13 @@ export const MenuApp = (props) => {
       </div>
 
       <div>
-        <Route exact path='/menu' component={NewEvent} />
+        <Route exact path='/menu' render={() => <NewEvent addNewEvent={addNewEvent} />} />
         
         <Route exact path='/menu/profile' component={AddPerson} />
 
         <Route exact path='/menu/profile' component={MyEvents} />
 
-        <Route exact path='/menu/events' render={() => <EventList {...events}/>} />  
+        <Route exact path='/menu/events' render={() => <EventList {...events} />} />  
       </div>
     
     </div>

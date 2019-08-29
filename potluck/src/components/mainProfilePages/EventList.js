@@ -11,11 +11,13 @@ export const EventList = props => {
     console.log(events)
 
 
-    if(props){
+    if(events){
         return(
             <div>
                 {events.map(item => (<EventCard 
-                        address={item.address} 
+                        address={item.address}
+                        userId={item.organizer_id}
+                        id={item.event_id}
                         city={item.city} 
                         description={item.description}
                         eventName={item.event_name}

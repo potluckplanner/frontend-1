@@ -1,212 +1,218 @@
-import React, { useState } from "react";
-
-// import React from "react";
-// import { withFormik, Form, Field } from "formik";
-// import * as Yup from "yup";
-// import axios from "axios";
-// import { Label, Input, SignUpWrapper } from '../styledComponents/StyledComponents'
+// import React, { useState } from "react";
 
 
-const NewEvent = props => {
+
+// const NewEvent = props => {
+
+//   // console.log(props)
+
+
+//   const defaultState = {
+//     name: ""
+//   };
+
+
+//   const [form, setForm] = useState(defaultState);
+
+
+//   function handleSubmit() {}
+
+//   return (
+//     <div className="form">
+
+//       <h1 className="heading titleH">Create New Event</h1>
+
+//       <form onSubmit={event => handleSubmit(event)}>
+//         <label className="toplabel" >
+//           Event Name
+//           <input
+//             className="nameF"
+//             type="text"
+//             name="name"
+//             placeholder="Event Name"
+//           />
+//         </label>
+//         <label>
+//           Event Address
+//           <input
+//             className="addressF"
+//             type="text"
+//             name="address"
+//             placeholder="Event Address"
+//           />
+//         </label>
+//         <label>
+//           Event Date  
+//           <input className="dateF" type="text" name="date" placeholder="Date" />
+//         </label>
+//         <label>
+//           Start Time
+//           <input
+//             className="startF"
+//             type="text"
+//             name="timestart"
+//             placeholder="Start Time"
+//           />
+//         </label>
+//         <label>
+//           End Time
+//           <input
+//             className="endF"
+//             type="text"
+//             name="timeend"
+//             placeholder="End Time"
+//           />
+//         </label>
+//         <label>
+//           Description
+//           <input
+//             className="descriptionF"
+//             type="text"
+//             name="description"
+//             placeholder="Description"
+//           />
+//         </label>
+
+//         <button className="buttonF">Submit</button>
+//       </form>
+//     </div>
+//   );
+// };
+// export default NewEvent;
+
+
+
+
+
+
+
+
+
+
+import React, {useState} from "react";
+import {axiosAuth} from '../axios/axiosAuth'
+
+
+
+
+
+
+const NewEvent = (props) => {
 
   // console.log(props)
 
+  const[newEvent, setNewEvent] = useState(
+    {
+      event_name: "", 
+      date: "", 
+      time: "",
+      address: "", 
+      city: "", 
+      state: "",
+      description: ""
+    }
+  );
+  
+  const changeHandler = (event) => {
+    // console.log(event.target.value);
+    setNewEvent({...newEvent, [event.target.name]: event.target.value});
+  };
+  
 
-  const defaultState = {
-    name: ""
+  const submitForm = (event) => {
+    console.log(newEvent)
+    event.preventDefault();
+
+    axiosAuth().post(`https://potluckplanner-be.herokuapp.com/users/${localStorage.getItem('id')}/events`, newEvent)
+      .then(response => console.log("THIS IS WHAT WE GET BACK",response))
+      .catch(error => console.log(error));
+
+    const newestEvent = {
+      ...newEvent
+    };
+    props.addNewEvent(newestEvent);
+    setNewEvent(    
+    {
+      event_name: "",
+      date: "", 
+      time: "",
+      address: "", 
+      city: "", 
+      state: "",
+      description: ""
+    });
   };
 
 
-  const [form, setForm] = useState(defaultState);
-
-
-  function handleSubmit() {}
-
+  
   return (
-    <div className="form">
+    <form onSubmit = {submitForm}>
 
-      <h1 className="heading titleH">Create New Event</h1>
+      <label>Event Name</label>
+      <input 
+        type="text" 
+        name="event_name" 
+        placeholder="Enter event name here:" 
+        value={newEvent.event_name}
+        onChange={changeHandler} 
+      />
 
-      <form onSubmit={event => handleSubmit(event)}>
-        <label className="toplabel" >
-          Event Name
-          <input
-            className="nameF"
-            type="text"
-            name="name"
-            placeholder="Event Name"
-          />
-        </label>
-        <label>
-          Event Address
-          <input
-            className="addressF"
-            type="text"
-            name="address"
-            placeholder="Event Address"
-          />
-        </label>
-        <label>
-          Event Date  
-          <input className="dateF" type="text" name="date" placeholder="Date" />
-        </label>
-        <label>
-          Start Time
-          <input
-            className="startF"
-            type="text"
-            name="timestart"
-            placeholder="Start Time"
-          />
-        </label>
-        <label>
-          End Time
-          <input
-            className="endF"
-            type="text"
-            name="timeend"
-            placeholder="End Time"
-          />
-        </label>
-        <label>
-          Description
-          <input
-            className="descriptionF"
-            type="text"
-            name="description"
-            placeholder="Description"
-          />
-        </label>
+      <label>Event Date</label> 
+      <input 
+        type="date" 
+        name="date" 
+        value={newEvent.date}
+        onChange={changeHandler} 
+      />
 
-        <button className="buttonF">Submit</button>
-      </form>
-    </div>
+      <label>Event Time</label> 
+      <input 
+        type="time" 
+        name="time" 
+        value={newEvent.time}
+        onChange={changeHandler} 
+      />
+
+      <label>Event Address</label> 
+      <input 
+        type="address" 
+        name="address" 
+        placeholder="Enter event address here:" 
+        value={newEvent.address}
+        onChange={changeHandler} 
+      />
+
+      <label>Event City</label> 
+      <input 
+        type="city" 
+        name="city" 
+        placeholder="Enter event city here:" 
+        value={newEvent.city}
+        onChange={changeHandler} 
+      />
+
+      <label>Event State</label> 
+      <input 
+        type="state" 
+        name="state" 
+        placeholder="Enter event state here:" 
+        value={newEvent.state}
+        onChange={changeHandler} 
+      />
+
+      <label>Event Description</label> 
+      <input 
+        type="text" 
+        name="description" 
+        placeholder="Enter event description here:" 
+        value={newEvent.description}
+        onChange={changeHandler} 
+      />
+
+      <button type="submit">Submit</button>
+
+    </form>
   );
 };
+
 export default NewEvent;
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const NewEvent = ({ touched, errors }) => {
-
-//   return (
-
-//     <SignUpWrapper className="wrapper">
-
-//       <h1 className ="signup heading">Sign up</h1>
-
-//       <Form className="singUpForm">
-//         <div>
-          
-//           <Input>
-//             <Label>Username</Label>
-//             <Field 
-//               name="username" 
-//               type="username"
-//               autoComplete="off"
-//             />
-//             <br/>
-//             <p>{touched.username && errors.username}</p>
-//           </Input>
-
-
-//           <Input>
-//             <Label>Full Name</Label>
-//             <Field 
-//               name="full_name" 
-//               type="text"
-//               autoComplete="off"
-//             />
-//             <br/>
-//             <p>{touched.full_name && errors.full_name}</p>
-//           </Input>
-
-
-//           <Input >
-//             <Label>Email</Label>
-//             <Field 
-//               name="email" 
-//               type="email" 
-//               autoComplete="off"
-//             />
-//             <br/>
-//             <p>{touched.email && errors.email}</p>
-//           </Input>
-
-
-//           <Input>
-//             <Label>Password</Label>
-//             <Field
-//               name="password"
-//               type="password"
-//               autoComplete="off"
-//             />
-//             <br/>
-//             <p>{touched.password && errors.password}</p>
-//           </Input>
-
-
-//           <button type="submit" >Submit &rarr;</button>
-//         </div>
-//       </Form>
-
-//     </SignUpWrapper>
-//   );
-// }
-
-// export default withFormik({
-
-//   mapPropsToValues() {
-//     return {
-//       username: "",
-//       email: "",
-//       password: ""
-//     };
-//   },
-
-
-//   validationSchema: Yup.object().shape({
-//     username: Yup.string()
-//       .min(3)
-//       .required(),
-//     full_name: Yup.string()
-//       .min(3)
-//       .required(),
-//     email: Yup.string()
-//       .email()
-//       .required(),
-//     password: Yup.string()
-//       .min(6)
-//       .required()
-//   }),
-
-
-//   handleSubmit(values, formikBag) {
-//     // const url = "https://career-longevity-predictor.herokuapp.com/api/auth/register";
-//     const url = "https://potluckplanner-be.herokuapp.com/users/register"
-
-
-//     console.log(values)
-//     axios
-//       .post(url, values)
-//       .then(response => {
-//         console.log(response)
-//         // localStorage.setItem("token");
-//         formikBag.props.history.push("/users/login");
-//       })
-//       .catch(e => {
-//         console.log(e);
-//       });
-//   }
-
-// })(NewEvent);
