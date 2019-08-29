@@ -82,7 +82,7 @@ export default withFormik({
       .post(url, values)
       .then(response => {
         console.log(response)
-        localStorage.setItem("token", response.data);
+        localStorage.setItem("token", response.data.token);
         formikBag.props.history.push("/menu");
       })
       .catch(e => {
