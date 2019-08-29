@@ -16,9 +16,11 @@ function Login({ touched, errors }) {
   }
 
   return (
-
-    <SignUpWrapper className="wrapper">
-      <h1 className ="signup heading">Sign in</h1>
+    
+    <div>
+    <h1 className ="signup heading">Sign in</h1>
+   <SignUpWrapper className="wrapper"> 
+      
 
       <Form className="singUpForm">
         <div>
@@ -49,6 +51,7 @@ function Login({ touched, errors }) {
       </Form>
 
     </SignUpWrapper>
+    </div>
   );
 }
 

@@ -47,7 +47,7 @@ const AddPerson = (props) => {
           })}
         </select>
 
-        <button className="buttonF">Submit</button>
+        <button className="buttonF buttondown">Submit</button>
       </form>
     </div>
   );

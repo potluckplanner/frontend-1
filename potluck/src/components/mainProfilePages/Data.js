@@ -6,7 +6,7 @@ const Data = [
             date:"02/23/95",
             timestart:"5:45 PM",
             timeend:"sundowm",
-            description:"just a couple a freak bitches trying to get our grind on too some regae music"
+            description:"just a couple of younge professional street proformers painting our bodies and eating a delicous feast of mixed meals brought by the different people il be gethering with"
       },
       {
             id: 2,
@@ -15,7 +15,7 @@ const Data = [
             date:"02/23/95",
             timestart:"5:45 PM",
             timeend:"sundowm",
-            description:"just a couple a freak bitches trying to get our grind on too some regae music"
+            description:"just a couple of younge professional street proformers painting our bodies and eating a delicous feast of mixed meals brought by the different people il be gethering with"
       },
       {
             id: 3,
@@ -24,7 +24,7 @@ const Data = [
             date:"02/23/95",
             timestart:"5:45 PM",
             timeend:"sundowm",
-            description:"just a couple a freak bitches trying to get our grind on too some regae music"
+            description:"just a couple of younge professional street proformers painting our bodies and eating a delicous feast of mixed meals brought by the different people il be gethering with"
       },
       {
             id: 4,
@@ -33,7 +33,7 @@ const Data = [
             date:"02/23/95",
             timestart:"5:45 PM",
             timeend:"sundowm",
-            description:"just a couple a freak bitches trying to get our grind on too some regae music"
+            description:"just a couple of younge professional street proformers painting our bodies and eating a delicous feast of mixed meals brought by the different people il be gethering with"
       },
       {
             id: 5,
@@ -42,7 +42,7 @@ const Data = [
             date:"02/23/95",
             timestart:"5:45 PM",
             timeend:"sundowm",
-            description:"just a couple a freak bitches trying to get our grind on too some regae music"
+            description:"just a couple of younge professional street proformers painting our bodies and eating a delicous feast of mixed meals brought by the different people il be gethering with"
       }
 ]
 
