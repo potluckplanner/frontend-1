@@ -10,8 +10,9 @@ const Header = props => {
       return (
             <div className="header">
                   <div className="icon">
-                        <i className="fas fa-utensils">
-                        </i><h1 className="heading">Potluck Planner</h1>
+                        
+                        <h1 className="heading">Potluck<i className="fas fa-utensils">
+                        </i> Planner</h1>
                   </div>
                   
                   <Button negative onClick={() => {

@@ -13,7 +13,7 @@ const MyEvents = (props) => {
       if(events){
             return(
             <div>
-                  <h1 className="heading titleH">My Events</h1>
+                  <h1 className="heading titleH events">My Events</h1>
                   {events.map(item => { if(item.organizer_id == localStorage.getItem('id')){
                        return <EventCard 
                           getEvents={props.getEvents}
