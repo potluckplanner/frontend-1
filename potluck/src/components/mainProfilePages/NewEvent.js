@@ -1,69 +1,223 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 
-const NewEvent = () => {
-  const defaultState = {
-    name: ""
+
+// const NewEvent = props => {
+
+//   // console.log(props)
+
+
+//   const defaultState = {
+//     name: ""
+//   };
+
+
+//   const [form, setForm] = useState(defaultState);
+
+
+//   function handleSubmit() {}
+
+//   return (
+//     <div className="form">
+
+//       <h1 className="heading titleH">Create New Event</h1>
+
+//       <form onSubmit={event => handleSubmit(event)}>
+//         <label className="toplabel" >
+//           Event Name
+//           <input
+//             className="nameF"
+//             type="text"
+//             name="name"
+//             placeholder="Event Name"
+//           />
+//         </label>
+//         <label>
+//           Event Address
+//           <input
+//             className="addressF"
+//             type="text"
+//             name="address"
+//             placeholder="Event Address"
+//           />
+//         </label>
+//         <label>
+//           Event Date  
+//           <input className="dateF" type="text" name="date" placeholder="Date" />
+//         </label>
+//         <label>
+//           Start Time
+//           <input
+//             className="startF"
+//             type="text"
+//             name="timestart"
+//             placeholder="Start Time"
+//           />
+//         </label>
+//         <label>
+//           End Time
+//           <input
+//             className="endF"
+//             type="text"
+//             name="timeend"
+//             placeholder="End Time"
+//           />
+//         </label>
+//         <label>
+//           Description
+//           <input
+//             className="descriptionF"
+//             type="text"
+//             name="description"
+//             placeholder="Description"
+//           />
+//         </label>
+
+//         <button className="buttonF">Submit</button>
+//       </form>
+//     </div>
+//   );
+// };
+// export default NewEvent;
+
+
+
+
+
+
+
+
+
+
+import React, {useState} from "react";
+import {axiosAuth} from '../axios/axiosAuth'
+
+
+
+
+
+
+const NewEvent = (props) => {
+
+  console.log(props)
+
+  const[newEvent, setNewEvent] = useState(
+    {
+      event_name: "", 
+      date: "", 
+      time: "",
+      address: "", 
+      city: "", 
+      state: "",
+      description: ""
+    }
+  );
+  
+  const changeHandler = (event) => {
+    // console.log(event.target.value);
+    setNewEvent({...newEvent, [event.target.name]: event.target.value});
   };
-  const [form, setForm] = useState(defaultState);
-  function handleSubmit() {}
-  return (
-    <div className="form">
-      <h1 className="heading titleH">Create New Event</h1>
-      <form onSubmit={event => handleSubmit(event)}>
-        <label className="toplabel" >
-          Event Name
-          <input
-            className="nameF"
-            type="text"
-            name="name"
-            placeholder="Event Name"
-          />
-        </label>
-        <label>
-          Event Address
-          <input
-            className="addressF"
-            type="text"
-            name="address"
-            placeholder="Event Address"
-          />
-        </label>
-        <label>
-          Event Date  
-          <input className="dateF" type="text" name="date" placeholder="Date" />
-        </label>
-        <label>
-          Start Time
-          <input
-            className="startF"
-            type="text"
-            name="timestart"
-            placeholder="Start Time"
-          />
-        </label>
-        <label>
-          End Time
-          <input
-            className="endF"
-            type="text"
-            name="timeend"
-            placeholder="End Time"
-          />
-        </label>
-        <label>
-          Description
-          <input
-            className="descriptionF"
-            type="text"
-            name="description"
-            placeholder="Description"
-          />
-        </label>
+  
+  
 
-        <button className="buttonD">Submit</button>
-      </form>
+  const submitForm = (event) => {
+    console.log(newEvent)
+    event.preventDefault();
+
+    axiosAuth().post(`https://potluckplanner-be.herokuapp.com/users/${localStorage.getItem('id')}/events`, newEvent)
+      .then(res => props.history.push('/menu/events'))
+      .catch(error => console.log(error));
+
+    const newestEvent = {
+      ...newEvent
+    };
+    props.addNewEvent(newestEvent);
+    setNewEvent(    
+    {
+      event_name: "",
+      date: "", 
+      time: "",
+      address: "", 
+      city: "", 
+      state: "",
+      description: ""
+    });
+  };
+
+
+  
+  return (
+<div>
+    <form onSubmit = {submitForm}>
+
+      <label>Event Name</label>
+      <input 
+        type="text" 
+        name="event_name" 
+        placeholder="Enter event name here:" 
+        value={newEvent.event_name}
+        onChange={changeHandler} 
+      />
+
+      <label>Event Date</label> 
+      <input 
+        type="date" 
+        name="date" 
+        value={newEvent.date}
+        onChange={changeHandler} 
+      />
+
+      <label>Event Time</label> 
+      <input 
+        type="time" 
+        name="time" 
+        value={newEvent.time}
+        onChange={changeHandler} 
+      />
+
+      <label>Event Address</label> 
+      <input 
+        type="address" 
+        name="address" 
+        placeholder="Enter event address here:" 
+        value={newEvent.address}
+        onChange={changeHandler} 
+      />
+
+      <label>Event City</label> 
+      <input 
+        type="city" 
+        name="city" 
+        placeholder="Enter event city here:" 
+        value={newEvent.city}
+        onChange={changeHandler} 
+      />
+
+      <label>Event State</label> 
+      <input 
+        type="state" 
+        name="state" 
+        placeholder="Enter event state here:" 
+        value={newEvent.state}
+        onChange={changeHandler} 
+      />
+
+      <label>Event Description</label> 
+      <input 
+        type="text" 
+        name="description" 
+        placeholder="Enter event description here:" 
+        value={newEvent.description}
+        onChange={changeHandler} 
+      />
+
+      <button type="submit">Submit</button>
+
+    </form>
+
+    
     </div>
   );
 };
+
 export default NewEvent;

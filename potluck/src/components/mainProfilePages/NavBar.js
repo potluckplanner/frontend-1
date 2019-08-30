@@ -8,9 +8,9 @@ const NavBar = () => {
   return( 
 
     <div className="navflex">
-      <NavLink className="navlink" to='/menu/profile'>All Events</NavLink>
+      <NavLink className="navlink" to='/menu/events'>All Events</NavLink>
 
-      <NavLink className="navlink" to='/menu/friends' >My Events</NavLink>
+      <NavLink className="navlink" to='/menu/profile' >My Events</NavLink>
 
       <NavLink className="navlink" to='/menu'>New Event</NavLink>
     </div>

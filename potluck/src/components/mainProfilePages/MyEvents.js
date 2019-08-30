@@ -1,24 +1,46 @@
 import React from 'react';
 import EventCard from "./EventCard";
-import Data from "./Data";
+import { EventContext } from '../context/EventContext'
+import { useContext } from 'react'
+
 
 const MyEvents = (props) => {
-
-      return( 
-      <div>
-            <h1 className="heading titleH">My Events</h1>
-            <div className="myevents">
+      
+      const {events}  = useContext(EventContext)
+      
+      console.log(events)
+      
+      if(events){
+            return(
+            <div>
+                  <h1 className="heading titleH">My Events</h1>
+                  {events.map(item => { if(item.organizer_id == localStorage.getItem('id')){
+                       return <EventCard 
+                          getEvents={props.getEvents}
+                          address={item.address}
+                          userId={item.organizer_id}
+                          date={item.date}
+                          id={item.event_id}
+                          city={item.city} 
+                          description={item.description}
+                          eventName={item.event_name}
+                          state={item.state}
+                          time={item.time}
+                      />
+                  }
+                  })}
+              </div>
+          )
+      } else {
+          return (
             
-            {
-                  Data.map( ( i ) => (
-                  
-                  <EventCard name={i.name} key={i.id} date={i.date} address={i.address} timestart={i.timestart} timeend={i.timeend} description={i.description} />
-
-                  ))
-            }
+            <div>
+            
+              <h3>Loading...</h3>
+            
             </div>
-            </div>
-      )
-
-}
+      
+          );
+        }
+  };
 export default MyEvents

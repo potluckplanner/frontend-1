@@ -80,12 +80,13 @@ export default withFormik({
     const url = "https://potluckplanner-be.herokuapp.com/users/login"
 
 
-    console.log(values)
+    // console.log("LOOK AT ME",values)
     axios
       .post(url, values)
       .then(response => {
-        console.log(response)
-        localStorage.setItem("token", response.data);
+        console.log("LOOK AT ME", response)
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("id", response.data.user_id);
         formikBag.props.history.push("/menu");
       })
       .catch(e => {
