@@ -8,7 +8,7 @@ import MyEvents from './MyEvents'
 // import AddPerson from './AddPerson'
 
 import { Route } from "react-router-dom";
-import { EventContext, UserContext } from '../context/EventContext'
+import { EventContext } from '../context/EventContext'
 import { useContext } from 'react'
 
 
@@ -17,11 +17,11 @@ import { useContext } from 'react'
 
 export const MenuApp = (props) => {
 
+  console.log(props)
+
   const {events}  = useContext(EventContext)
-  const {users}  = useContext(UserContext)
 
   const[newEvents, setNewEvents] = useState(events);
-  const[newUsers, setNewUsers] = useState(users);
 
   const addNewEvent = e => {
     setNewEvents([...newEvents, e]);
@@ -39,15 +39,17 @@ export const MenuApp = (props) => {
       
 
       <div>
-        <Route exact path='/menu' render={() => <NewEvent addNewEvent={addNewEvent} />} />
+        <Route exact path='/menu' render={() => <NewEvent addNewEvent={addNewEvent} {...props} getEvents={props.getEvents} />} />
         
         {/* <Route exact path='/menu/profile' component={MainEvent} /> */}
 
-        <Route exact path='/menu/profile' render={() => <MyEvents {...events} />} />
+        <Route exact path='/menu/profile' render={() => <MyEvents {...events} getEvents={props.getEvents} />} />
 
         {/* <Route exact path='/menu/profile' render={() => <EventList {...events} />} />  */}
 
-        <Route exact path='/menu/events' render={() => <EventList {...events} />} />  
+        <Route exact path='/menu/events' render={() => <EventList {...events} getEvents={props.getEvents} />} /> 
+
+        {/* <Route exact path='/menu/signup' render={() => <EventList {...events} getEvents={props.getEvents} />} />  */}
 
       </div>
     

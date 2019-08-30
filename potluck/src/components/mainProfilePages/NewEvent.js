@@ -99,7 +99,7 @@ import {axiosAuth} from '../axios/axiosAuth'
 
 const NewEvent = (props) => {
 
-  // console.log(props)
+  console.log(props)
 
   const[newEvent, setNewEvent] = useState(
     {
@@ -118,13 +118,14 @@ const NewEvent = (props) => {
     setNewEvent({...newEvent, [event.target.name]: event.target.value});
   };
   
+  
 
   const submitForm = (event) => {
     console.log(newEvent)
     event.preventDefault();
 
     axiosAuth().post(`https://potluckplanner-be.herokuapp.com/users/${localStorage.getItem('id')}/events`, newEvent)
-      .then(response => console.log("THIS IS WHAT WE GET BACK",response))
+      .then(res => props.history.push('/menu/events'))
       .catch(error => console.log(error));
 
     const newestEvent = {

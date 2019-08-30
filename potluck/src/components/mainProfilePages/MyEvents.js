@@ -16,6 +16,7 @@ const MyEvents = (props) => {
                   <h1 className="heading titleH">My Events</h1>
                   {events.map(item => { if(item.organizer_id == localStorage.getItem('id')){
                        return <EventCard 
+                          getEvents={props.getEvents}
                           address={item.address}
                           userId={item.organizer_id}
                           date={item.date}

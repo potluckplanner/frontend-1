@@ -1,11 +1,12 @@
 import React from 'react';
 
 import {axiosAuth} from '../axios/axiosAuth'
-
+import { EventContext } from '../context/EventContext'
+import { useContext } from 'react'
 
 
 const EventCard = (props) => {
-
+      const {events}  = useContext(EventContext)
       console.log(props)
 
       return(
@@ -19,7 +20,7 @@ const EventCard = (props) => {
                   <button className="eventbutton">sign up</button>
                   <button className="eventbutton" onClick={() => { if(props.userId == localStorage.getItem('id')){
                         return axiosAuth().delete(`https://potluckplanner-be.herokuapp.com/events/${props.id}`)
-                              .then(res => console.log(res))
+                              .then(res => props.getEvents())
                               .catch(error => console.log(error))
                   }}
                         

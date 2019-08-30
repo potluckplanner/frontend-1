@@ -1,25 +1,26 @@
 
-import React from 'react'
+import React, {useEffect} from 'react'
 import EventCard from './EventCard'
 
 import { EventContext } from '../context/EventContext'
 import { useContext } from 'react'
 
 
-import MainEvent from './MainEvent';
-
-
 
 export const EventList = props => {
 
+  useEffect(() => {props.getEvents()}, [])
+    console.log(props)
+
     const {events}  = useContext(EventContext)
 
-    console.log(events)
+    // console.log(events)
 
     if(events){
         return(
             <div>
                 {events.map(item => (<EventCard 
+                        getEvents={props.getEvents}
                         address={item.address}
                         userId={item.organizer_id}
                         date={item.date}

@@ -23,15 +23,17 @@ function App() {
   const [users, setUsers] = useState([])
 
   // console.log(events)
-
-
- useEffect(() => {
+  const getEvents = () => {
     axiosAuth().get("https://potluckplanner-be.herokuapp.com/events")
       .then(res => {
         // console.log(res.data)
         setEvents(res.data)
       })
       .catch(error => console.log(error.response))
+  } 
+
+ useEffect(() => {
+    getEvents()
     }, [])
 
     useEffect(() => {
@@ -63,7 +65,7 @@ function App() {
               if (!token) {
                 return <Redirect to="/" />;
               }
-                return  <MenuApp {...props} />; 
+                return  <MenuApp {...props} getEvents={getEvents} />; 
               }} 
           />
 
@@ -72,7 +74,7 @@ function App() {
               if (!token) {
                 return <Redirect to="/" />;
               }
-                return <MenuApp {...props} />;
+                return <MenuApp {...props} getEvents={getEvents} />;
               }} 
           />
 
@@ -81,7 +83,7 @@ function App() {
               if (!token) {
                 return <Redirect to="/" />;
               }
-                return <MenuApp {...props} />;
+                return <MenuApp {...props} getEvents={getEvents} />;
               }} 
           />
 
