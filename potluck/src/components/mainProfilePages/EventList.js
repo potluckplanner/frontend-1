@@ -10,7 +10,7 @@ import { useContext } from 'react'
 export const EventList = props => {
 
   useEffect(() => {props.getEvents()}, [])
-    console.log(props)
+    // console.log(props)
 
     const {events}  = useContext(EventContext)
 

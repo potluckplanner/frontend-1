@@ -87,8 +87,6 @@ function App() {
               }} 
           />
 
-        {/* <Route exact path="/menu" component={MenuApp}/> */}
-
 
         </UserContext.Provider>
       </EventContext.Provider>
